@@ -28,9 +28,8 @@ const AboutSection = () => {
           >
             <div className="relative w-64 h-72 rounded-2xl overflow-hidden glass gradient-border">
               <div className="w-full h-full bg-secondary flex items-center justify-center">
-                <span className="text-6xl font-bold gradient-text">SP</span>
                  <img
-                    src="/img-05432.jpg"   // <-- replace with your actual image path
+                    src="/IMG_5864.JPG"   // <-- replace with your actual image path
                     alt="Saravana Prashanth"
                     className="w-full h-full object-cover"
                   />
