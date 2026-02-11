@@ -7,18 +7,10 @@ interface Project {
   description: string;
   impact?: string;
   tech: string[];
+  link: string;
 }
 
 const projects: Project[] = [
-  {
-    title: "NHS Prescribing Patterns",
-    tag: "Big Data Analysis",
-    description:
-      "Conducted longitudinal analysis of 300 Million+ antidepressant prescription records (2021-2024) across England.",
-    impact:
-      "Identified key cost variations (spending dropped from £290M to £210M) and regional disparities to inform public health policy.",
-    tech: ["Python", "Pandas", "Public Health Data"],
-  },
   {
     title: "London Airbnb Revenue Engine",
     tag: "Machine Learning",
@@ -27,6 +19,7 @@ const projects: Project[] = [
     impact:
       'Achieved RMSE of £58. Included a counterfactual inference engine to calculate the exact ROI of adding specific amenities (e.g., A/C, WiFi).',
     tech: ["Python", "Streamlit", "Scikit-Learn"],
+    link: "https://london-airbnb-predictor-sp.streamlit.app/",
   },
   {
     title: "MSc Dissertation: Deep Learning for Medical Diagnostics",
@@ -36,13 +29,7 @@ const projects: Project[] = [
     impact:
       'Improved diagnostic classification accuracy by 12% compared to standard baselines. Achieved "Outstanding" grade & MSc Distinction.',
     tech: ["PyTorch", "ResNet-50", "Computer Vision (GANs)"],
-  },
-  {
-    title: "Enterprise Retail ETL Pipeline",
-    tag: "Data Engineering",
-    description:
-      "End-to-end analytics pipeline analyzing retail sales data to uncover top revenue products and regional growth trends.",
-    tech: ["SQL", "Azure", "Jupyter Notebooks"],
+    link: "https://github.com/SaravanaPrashanth/SRGAN-SkinCancer-Classification",
   },
   {
     title: "Dynamic Sales Intelligence",
@@ -54,14 +41,50 @@ const projects: Project[] = [
     tech: ["Advanced Excel (XLOOKUP, Pivot Tables, Slicers)", "Data Modeling"],
   },
   {
+    title: "NHS Prescribing Patterns",
+    tag: "Big Data Analysis",
+    description:
+      "Conducted longitudinal analysis of 300 Million+ antidepressant prescription records (2021-2024) across England.",
+    impact:
+      'Identified key cost variations (spending dropped from £290M to £210M) and regional disparities to inform public health policy.',
+    tech: ["Python", "Pandas", "Public Health Data"],
+  },
+  {
+    title: "Enterprise Retail ETL Pipeline",
+    tag: "Data Engineering",
+    description:
+      'End-to-end analytics pipeline analyzing retail sales data to uncover top revenue products and regional growth trends.',
+    tech: ["SQL", "Azure", "Jupyter Notebooks"],
+    link: "https://saravanaprashanth.github.io/data-analysis/"
+  },
+  {
     title: "Medical Imaging Diagnosis",
     tag: "Deep Learning",
     description:
       "Developed a U-NET architecture for Pancreas segmentation in CT scans and a Super-Resolution GAN for skin cancer classification.",
     impact:
-      "Improved diagnostic accuracy and image resolution for automated medical analysis.",
+      'Improved diagnostic accuracy and image resolution for automated medical analysis.',
     tech: ["PyTorch", "TensorFlow", "Computer Vision"],
+    link: "https://saravanaprashanth.github.io/Pancreas-Segmentation-using-U-NET-Architecture/",
   },
+  { 
+    title: "DesignForge – AI for Product Creators", 
+    tag: "AI Product Development", 
+    description: 
+      "AI-powered tool enabling zero-cost product photography and instant marketing asset generation for small businesses.", 
+    impact: 
+      'Built for Google Nano-Banana Hackathon using Gemini 2.5 Flash Image, enabling rapid prototyping and automated content creation.', 
+    tech: ["Google AI Studio", "Gemini 2.5 Flash", "ElevenLabs", "CapCut", "API Integration"], 
+  },
+  { 
+    title: "AI-Powered Fundraising Campaign Generator", 
+    tag: "Prompt Engineering", 
+    description: 
+      "Developed a multi-LLM system that generates emotionally compelling fundraising campaigns for charities.", 
+    impact: 
+      'Led a team of 4 to build guided and minimal-input generation flows using ChatGPT, Claude, and Grok.', 
+    tech: ["ChatGPT", "Claude", "Grok", "Prompt Engineering", "Canva", "LLM"],
+  }
 ];
 
 const cardVariants = {
@@ -94,6 +117,12 @@ const ProjectsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((project, i) => (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+            >
             <motion.div
               key={project.title}
               custom={i}
@@ -137,6 +166,7 @@ const ProjectsSection = () => {
                 ))}
               </div>
             </motion.div>
+            </a>
           ))}
         </div>
       </div>
