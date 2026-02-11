@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import HeroParticles from "./HeroParticles";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden dot-pattern">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <HeroParticles />
       {/* Ambient glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
 

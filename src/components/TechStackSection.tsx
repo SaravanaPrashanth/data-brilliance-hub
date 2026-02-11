@@ -1,25 +1,42 @@
 import { motion } from "framer-motion";
 
+interface TechTool {
+  name: string;
+  icon: string;
+}
+
 interface TechCategory {
   label: string;
-  tools: string[];
+  tools: TechTool[];
   color: string;
 }
 
 const categories: TechCategory[] = [
   {
     label: "Core",
-    tools: ["Python", "SQL", "Azure Data Factory", "Snowflake"],
+    tools: [
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+      { name: "Azure Data Factory", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+      { name: "Snowflake", icon: "https://img.icons8.com/color/48/snowflake.png" },
+    ],
     color: "from-blue-500/20 to-cyan-500/20",
   },
   {
     label: "Analytics",
-    tools: ["Power BI", "Advanced Excel"],
+    tools: [
+      { name: "Power BI", icon: "https://img.icons8.com/color/48/power-bi.png" },
+      { name: "Advanced Excel", icon: "https://img.icons8.com/color/48/microsoft-excel-2019.png" },
+    ],
     color: "from-emerald-500/20 to-teal-500/20",
   },
   {
     label: "Machine Learning",
-    tools: ["PyTorch", "Scikit-Learn", "XGBoost"],
+    tools: [
+      { name: "PyTorch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
+      { name: "Scikit-Learn", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" },
+      { name: "XGBoost", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    ],
     color: "from-violet-500/20 to-purple-500/20",
   },
 ];
@@ -38,7 +55,7 @@ const itemVariants = {
 
 const TechStackSection = () => {
   return (
-    <section className="py-24 px-6">
+    <section id="tech" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,14 +90,25 @@ const TechStackSection = () => {
                   {cat.label}
                 </span>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {cat.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium"
+              <div className="flex flex-wrap gap-3">
+                {cat.tools.map((tool, i) => (
+                  <motion.div
+                    key={tool.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.08 }}
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-secondary text-secondary-foreground text-sm font-medium transition-colors hover:bg-primary/10 hover:border-primary/30 border border-transparent"
                   >
-                    {tool}
-                  </span>
+                    <img
+                      src={tool.icon}
+                      alt={tool.name}
+                      className="w-5 h-5"
+                      loading="lazy"
+                    />
+                    {tool.name}
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
