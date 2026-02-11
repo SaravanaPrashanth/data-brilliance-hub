@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
 
 const additionalTools = [
-  "JavaScript", "HTML5", "CSS3", "FastAPI", "Streamlit",
-  "Jupyter Notebook", "Tableau", "Git", "Docker", "Databricks",
-  "Apache Spark", "TensorFlow",
+  "Streamlit", "Snowflake", "Tableau", "Git", "Databricks",
+  "Apache Airflow", "Kafka", "Jupyter Notebook",
 ];
 
 const stats = [
   { value: "3+", label: "Years Experience", gradient: "from-primary to-accent" },
   { value: "10+", label: "Projects Completed", gradient: "from-primary to-blue-400" },
-  { value: "15+", label: "Certifications", gradient: "from-primary to-violet-500" },
-  { value: "15+", label: "Technologies Mastered", gradient: "from-accent to-emerald-500" },
+  { value: "10+", label: "Certifications", gradient: "from-primary to-violet-500" },
+  { value: "10+", label: "Technologies Mastered", gradient: "from-accent to-emerald-500" },
 ];
 
 const AdditionalTechSection = () => {
